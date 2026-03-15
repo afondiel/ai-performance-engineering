@@ -1,5 +1,7 @@
 > *"Premature optimization is the root of all evil - but we should not pass up opportunities in the critical 3%."* - Donald Knuth
 
+[![](https://img.shields.io/badge/Contribute-Welcome-green)](./CONTRIBUTING.md) ![GitHub](https://img.shields.io/github/license/afondiel/ai-performance-engineering)
+
 # AI Performance Engineering Cheatsheet
 
 > **From Cloud to Edge** — A holistic reference covering hardware fundamentals, GPU/accelerator metrics, the roofline model, AI/ML training & inference KPIs, LLM serving, distributed systems, quantization, cloud-native & edge deployment, networking, compiler optimizations, and practical tooling.
