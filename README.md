@@ -49,14 +49,10 @@ Example:
 ### 1.2 IPC (Instructions Per Cycle)
 
 - **Formula:**
-  $$
-  \text{IPC} = \frac{\text{Number of retired instructions}}{\text{Number of clock cycles}}
-  $$
+  $\displaystyle \text{IPC} = \frac{\text{Number of retired instructions}}{\text{Number of clock cycles}}$
 
 - **Derived:**
-  $$
-  \text{Inst/s} = \text{IPC} \times f_{\text{clock}}
-  $$
+  $\displaystyle \text{Inst/s} = \text{IPC} \times f_{\text{clock}}$
 
 - **Interpretation:** Average completed instructions per clock cycle.
 
@@ -64,81 +60,56 @@ Example:
 ### 1.3 CPI (Cycles Per Instruction)
 
 - **Formula:**
-  $$
-  \text{CPI} = \frac{\text{Number of clock cycles}}{\text{Number of retired instructions}}
-  $$
+  $\displaystyle \text{CPI} = \frac{\text{Number of clock cycles}}{\text{Number of retired instructions}}$
 
 - **Relation to IPC:**
-  $$
-  \text{IPC} = \frac{1}{\text{CPI}}, \qquad \text{CPI} = \frac{1}{\text{IPC}}
-  $$
+  $\displaystyle \text{IPC} = \frac{1}{\text{CPI}}, \qquad \text{CPI} = \frac{1}{\text{IPC}}$
 
 ### 1.4 FLOPS (Floating-Point Operations Per Second)
 
 #### 1.4.1 Theoretical Peak (Per Device)
 
 - **Formula:**
-  $$
-  \text{Peak FLOPS} = N_{\text{cores}} \times f_{\text{clock}} \times \text{FLOPs per cycle per core}
-  $$
+  $\displaystyle \text{Peak FLOPS} = N_{\text{cores}} \times f_{\text{clock}} \times \text{FLOPs per cycle per core}$
 
 Example (scalar):
-- 1 core, 3 GHz, 1 FLOP/cycle => $3 \,\text{GFLOPS}$.
+- 1 core, 3 GHz, 1 FLOP/cycle => $3 \\,\text{GFLOPS}$.
 
 Example (vector FMA):
 - 8-wide FMA, 2 FP units/core, 3 GHz:
-  $$
-  \text{FLOPs/cycle/core} = 8 \times 2 \times 2 = 32
-  $$
-  $$
-  \text{Peak} = 3 \times 10^{9} \times 32 = 96\,\text{GFLOPS}
-  $$
+  $\displaystyle \text{FLOPs/cycle/core} = 8 \times 2 \times 2 = 32$
+
+  $\displaystyle \text{Peak} = 3 \times 10^{9} \times 32 = 96\\,\text{GFLOPS}$
 
 #### 1.4.2 Delivered / Measured FLOPS
 
 - **Formula:**
-  $$
-  \text{Delivered FLOPs/s} = \frac{\text{Floating-point operations actually performed}}{\text{Execution time}}
-  $$
+  $\displaystyle \text{Delivered FLOPs/s} = \frac{\text{Floating-point operations actually performed}}{\text{Execution time}}$
 
 - **Efficiency:**
-  $$
-  \text{FLOP efficiency} = \frac{\text{Delivered FLOPs/s}}{\text{Peak FLOPs/s}} \times 100\%
-  $$
+  $\displaystyle \text{FLOP efficiency} = \frac{\text{Delivered FLOPs/s}}{\text{Peak FLOPs/s}} \times 100\\%$
 
 ### 1.5 MACs (Multiply-Accumulate Operations)
 
 - **Definition:**
-  $$
-  a \gets a + (b \times c)
-  $$
+  $\displaystyle a \gets a + (b \times c)$
 
 - **MACs per second (per unit):**
-  $$
-  \text{MAC/s} = N_{\text{MAC/cycle}} \times f_{\text{clock}}
-  $$
+  $\displaystyle \text{MAC/s} = N_{\text{MAC/cycle}} \times f_{\text{clock}}$
 
 - **GMAC:**
-  $$
-  \text{GMAC} = \frac{\text{Number of MAC operations}}{10^{9}}
-  $$
+  $\displaystyle \text{GMAC} = \frac{\text{Number of MAC operations}}{10^{9}}$
 
 - **Relation to FLOPs (when one MAC = 2 FLOPs):**
-  $$
-  \text{FLOPs} = 2 \times \text{MACs}
-  $$
+  $\displaystyle \text{FLOPs} = 2 \times \text{MACs}$
 
 ### 1.6 Instruction Mix Ratios
 
 - **FP instruction fraction:**
-  $$
-  \text{FP fraction} = \frac{\text{FP instructions}}{\text{Total instructions}}
-  $$
+  $\displaystyle \text{FP fraction} = \frac{\text{FP instructions}}{\text{Total instructions}}$
 
 - **Memory instruction fraction:**
-  $$
-  \text{Memory inst fraction} = \frac{\text{Load/Store instructions}}{\text{Total instructions}}
-  $$
+  $\displaystyle \text{Memory inst fraction} = \frac{\text{Load/Store instructions}}{\text{Total instructions}}$
 
 ---
 
@@ -147,7 +118,7 @@ Example (vector FMA):
 ### 2.1 Streaming Multiprocessor (SM) Occupancy
 
 $$
-\text{Occupancy} = \frac{\text{Active warps per SM}}{\text{Maximum warps per SM}} \times 100\%
+\text{Occupancy} = \frac{\text{Active warps per SM}}{\text{Maximum warps per SM}} \times 100\\%
 $$
 
 - Higher occupancy can hide memory latency through warp switching.
@@ -156,7 +127,7 @@ $$
 ### 2.2 Warp Execution Efficiency
 
 $$
-\text{Warp efficiency} = \frac{\text{Active threads per warp}}{32} \times 100\%
+\text{Warp efficiency} = \frac{\text{Active threads per warp}}{32} \times 100\\%
 $$
 
 - Divergent branches reduce efficiency (threads in a warp take different paths).
@@ -164,7 +135,7 @@ $$
 ### 2.3 Tensor Core / Matrix Unit Utilization
 
 $$
-\text{TC utilization} = \frac{\text{Cycles Tensor Cores are active}}{\text{Total cycles}} \times 100\%
+\text{TC utilization} = \frac{\text{Cycles Tensor Cores are active}}{\text{Total cycles}} \times 100\\%
 $$
 
 - Tensor Cores perform mixed-precision matrix multiply-accumulate (e.g., FP16 inputs -> FP32 accumulator).
@@ -173,7 +144,7 @@ $$
 ### 2.4 GPU Memory Bandwidth Utilization
 
 $$
-\text{BW utilization} = \frac{\text{Achieved bandwidth}}{\text{Peak HBM bandwidth}} \times 100\%
+\text{BW utilization} = \frac{\text{Achieved bandwidth}}{\text{Peak HBM bandwidth}} \times 100\\%
 $$
 
 - HBM3 example (H100): 3.35 TB/s peak bandwidth.
@@ -202,9 +173,7 @@ $$
 - **Systolic array utilization:** fraction of PEs (Processing Elements) active per cycle.
 - **On-chip SRAM bandwidth** often exceeds off-chip by 10-100x; data tiling is critical.
 - **TPU MXU utilization:**
-  $$
-  \text{MXU util} = \frac{\text{Performed matmuls}}{\text{Peak matmul capacity}} \times 100\%
-  $$
+  $\displaystyle \text{MXU util} = \frac{\text{Performed matmuls}}{\text{Peak matmul capacity}} \times 100\\%$
 
 ---
 
@@ -213,18 +182,15 @@ $$
 ### 3.1 Execution Time (Latency)
 
 - Using CPI:
-  $$
-  T_{\text{exec}} = \frac{\text{Instruction count} \times \text{CPI}}{f_{\text{clock}}}
-  $$
+  $\displaystyle T_{\text{exec}} = \frac{\text{Instruction count} \times \text{CPI}}{f_{\text{clock}}}$
 
 - Using IPC:
-  $$
-  T_{\text{exec}} = \frac{\text{Instruction count}}{\text{IPC} \times f_{\text{clock}}}
-  $$
+  $\displaystyle T_{\text{exec}} = \frac{\text{Instruction count}}{\text{IPC} \times f_{\text{clock}}}$
 
 ### 3.2 Throughput
 
 Generic definition:
+
 $$
 \text{Throughput} = \frac{\text{Work done}}{\text{Time}}
 $$
@@ -238,6 +204,7 @@ Special cases:
 ### 3.3 Latency vs Throughput (Simple Case)
 
 For a simple fully pipelined system:
+
 $$
 \text{Throughput} \approx \frac{1}{\text{Average latency}}
 $$
@@ -251,6 +218,7 @@ $$
 ### 3.5 Speedup
 
 Given baseline time $T_1$ and optimized time $T_2$:
+
 $$
 S = \frac{T_1}{T_2}
 $$
@@ -264,7 +232,7 @@ The roofline model provides a visual upper bound on performance as a function of
 ### 4.1 Core Equation
 
 $$
-\text{Attainable Performance (FLOPs/s)} = \min\!\Big(\text{Peak FLOPs/s},\;\text{Peak BW} \times \text{AI}\Big)
+\text{Attainable Performance (FLOPs/s)} = \min\\!\Big(\text{Peak FLOPs/s},\\;\text{Peak BW} \times \text{AI}\Big)
 $$
 
 Where:
@@ -315,6 +283,7 @@ S = \frac{1}{(1 - f) + \frac{f}{s}}
 $$
 
 Special case, parallelization across $N$ cores with ideal scaling ($s = N$):
+
 $$
 S_N = \frac{1}{(1 - f) + \frac{f}{N}}
 $$
@@ -346,14 +315,10 @@ $$
 ### 5.5 Scaling Efficiency (Weak vs Strong)
 
 - **Strong scaling:** Fixed total problem size, increase $N$.
-  $$
-  E_{\text{strong}} = \frac{T_1}{N \cdot T_N}
-  $$
+  $\displaystyle E_{\text{strong}} = \frac{T_1}{N \cdot T_N}$
 
 - **Weak scaling:** Problem size grows with $N$ (constant work per worker).
-  $$
-  E_{\text{weak}} = \frac{T_1}{T_N}
-  $$
+  $\displaystyle E_{\text{weak}} = \frac{T_1}{T_N}$
 
 ---
 
@@ -362,18 +327,21 @@ $$
 ### 6.1 Memory Bandwidth
 
 Definition:
+
 $$
 \text{Bandwidth} = \frac{\text{Bytes transferred}}{\text{Second}}
 $$
 
 Theoretical example (64-bit bus, 3.2 GT/s):
+
 $$
-\text{Peak BW} = 8\,\text{bytes} \times 3.2 \times 10^{9}\ \text{transfers/s}
+\text{Peak BW} = 8\\,\text{bytes} \times 3.2 \times 10^{9}\ \text{transfers/s}
 $$
 
 ### 6.2 Memory Latency
 
 Conversion between time and cycles:
+
 $$
 \text{Latency (cycles)} = \text{Latency (seconds)} \times f_{\text{clock}}
 $$
@@ -387,14 +355,10 @@ $$
 ### 6.4 Cache Hit/Miss Ratios
 
 - Hit ratio:
-  $$
-  \text{Hit ratio} = \frac{\text{Cache hits}}{\text{Cache accesses}}
-  $$
+  $\displaystyle \text{Hit ratio} = \frac{\text{Cache hits}}{\text{Cache accesses}}$
 
 - Miss ratio:
-  $$
-  \text{Miss ratio} = 1 - \text{Hit ratio} = \frac{\text{Cache misses}}{\text{Cache accesses}}
-  $$
+  $\displaystyle \text{Miss ratio} = 1 - \text{Hit ratio} = \frac{\text{Cache misses}}{\text{Cache accesses}}$
 
 ### 6.5 Memory Hierarchy Typical Latencies
 
@@ -431,14 +395,15 @@ $$
 ### 7.1 CPU / Device Utilization
 
 Time-based:
+
 $$
-\text{Utilization} = \frac{\text{Time device is executing useful work}}{\text{Total observed time}} \times 100\%
+\text{Utilization} = \frac{\text{Time device is executing useful work}}{\text{Total observed time}} \times 100\\%
 $$
 
 ### 7.2 Unit Utilization (e.g. FPU, Tensor Core)
 
 $$
-\text{Unit utilization} = \frac{\text{Cycles where the unit is busy}}{\text{Total cycles}} \times 100\%
+\text{Unit utilization} = \frac{\text{Cycles where the unit is busy}}{\text{Total cycles}} \times 100\\%
 $$
 
 ### 7.3 Stall Fraction
@@ -450,6 +415,7 @@ $$
 ### 7.4 Little's Law
 
 For a stable system:
+
 $$
 L = \lambda \times W
 $$
@@ -460,11 +426,13 @@ Where:
 - $W$ = average time an item spends in the system (s)
 
 Rearrangements:
+
 $$
 \lambda = \frac{L}{W}, \qquad W = \frac{L}{\lambda}
 $$
 
 **Applied to inference serving:** If you want $\lambda = 100$ req/s and average latency $W = 50$ ms:
+
 $$
 L = 100 \times 0.05 = 5 \text{ concurrent requests in flight}
 $$
@@ -488,27 +456,19 @@ $$
 For a Transformer model with $L$ layers, hidden size $H$, sequence length $S$, vocabulary $V$:
 
 - **Forward pass per token (approx.):**
-  $$
-  \text{FLOPs}_{\text{fwd}} \approx 2 \times P
-  $$
+  $\displaystyle \text{FLOPs}_{\text{fwd}} \approx 2 \times P$
   where $P$ is the number of parameters.
 
 - **Backward pass is approximately 2x forward**, so total per-token training:
-  $$
-  \text{FLOPs}_{\text{train/token}} \approx 6 \times P
-  $$
+  $\displaystyle \text{FLOPs}_{\text{train/token}} \approx 6 \times P$
 
 ### 8.3 Hardware FLOPs Utilization (HFU / MFU)
 
 - **Model FLOPs Utilization (MFU):** only counts "useful" model math:
-  $$
-  \text{MFU} = \frac{\text{Model FLOPs per step} / T_{\text{step}}}{\text{Peak device FLOPs/s}} \times 100\%
-  $$
+  $\displaystyle \text{MFU} = \frac{\text{Model FLOPs per step} / T_{\text{step}}}{\text{Peak device FLOPs/s}} \times 100\\%$
 
 - **Hardware FLOPs Utilization (HFU):** includes all FLOPs the hardware performs (rematerialization, etc.):
-  $$
-  \text{HFU} = \frac{\text{All FLOPs per step} / T_{\text{step}}}{\text{Peak device FLOPs/s}} \times 100\%
-  $$
+  $\displaystyle \text{HFU} = \frac{\text{All FLOPs per step} / T_{\text{step}}}{\text{Peak device FLOPs/s}} \times 100\\%$
 
 - Good MFU values: 40-60% (typical), 60%+ (excellent).
 
@@ -574,7 +534,7 @@ Optimal batch size maximizes throughput while keeping $T_{\text{batch}}(B) \leq 
 ### 9.4 Dynamic Batching Efficiency
 
 $$
-\text{Batch fill rate} = \frac{\text{Average actual batch size}}{\text{Maximum batch size}} \times 100\%
+\text{Batch fill rate} = \frac{\text{Average actual batch size}}{\text{Maximum batch size}} \times 100\\%
 $$
 
 ### 9.5 Model Compression Metrics
@@ -584,7 +544,7 @@ $$
 $$
 
 $$
-\text{Accuracy retention} = \frac{\text{Compressed model accuracy}}{\text{Original model accuracy}} \times 100\%
+\text{Accuracy retention} = \frac{\text{Compressed model accuracy}}{\text{Original model accuracy}} \times 100\\%
 $$
 
 ---
@@ -610,14 +570,10 @@ Determines the streaming speed experienced by the user.
 ### 10.3 Token Throughput
 
 - **Per-request:**
-  $$
-  \text{Tokens/s (per request)} = \frac{\text{Output tokens}}{T_{\text{generation}}}
-  $$
+  $\displaystyle \text{Tokens/s (per request)} = \frac{\text{Output tokens}}{T_{\text{generation}}}$
 
 - **System-wide:**
-  $$
-  \text{Tokens/s (system)} = \frac{\text{Total tokens generated across all requests}}{T_{\text{observation}}}
-  $$
+  $\displaystyle \text{Tokens/s (system)} = \frac{\text{Total tokens generated across all requests}}{T_{\text{observation}}}$
 
 ### 10.4 Prefill vs Decode Phases
 
@@ -696,11 +652,13 @@ Ideal: overlap ratio -> 100% (communication fully hidden).
 ### 11.4 Model Parallelism
 
 **Tensor Parallelism (TP):** Split individual layers across devices.
+
 $$
 \text{Comm per layer (TP)} = 2 \times \text{AllReduce}(\text{activation size})
 $$
 
 **Pipeline Parallelism (PP):** Assign different layers to different devices.
+
 $$
 \text{Pipeline bubble fraction} = \frac{P - 1}{\text{Micro-batches} + P - 1}
 $$
@@ -852,7 +810,7 @@ $$
 ### 14.4 Auto-Scaling Metrics
 
 $$
-\text{Scale-up trigger:} \quad \text{Avg queue depth} > \theta_{\text{high}} \;\text{for}\; t > t_{\text{window}}
+\text{Scale-up trigger:} \quad \text{Avg queue depth} > \theta_{\text{high}} \\;\text{for}\\; t > t_{\text{window}}
 $$
 
 $$
@@ -990,19 +948,13 @@ At 30 FPS: $T_{\text{frame}} = 33.3$ ms. At 60 FPS: $T_{\text{frame}} = 16.7$ ms
 ### 17.1 Power & Energy
 
 - Power:
-  $$
-  P = \frac{\text{Energy}}{\text{Time}}
-  $$
+  $\displaystyle P = \frac{\text{Energy}}{\text{Time}}$
 
 - Energy per operation:
-  $$
-  E_{\text{op}} = \frac{\text{Energy consumed}}{\text{Number of operations}}
-  $$
+  $\displaystyle E_{\text{op}} = \frac{\text{Energy consumed}}{\text{Number of operations}}$
 
 - Energy efficiency:
-  $$
-  \text{FLOPs/J} = \frac{\text{FLOPs}}{\text{Energy}}
-  $$
+  $\displaystyle \text{FLOPs/J} = \frac{\text{FLOPs}}{\text{Energy}}$
 
 ### 17.2 Performance per Watt
 
@@ -1015,7 +967,7 @@ Examples: GFLOPS/W, Images/s/W, Tokens/s/W
 ### 17.3 Performance per Dollar
 
 $$
-\text{Perf/\$} = \frac{\text{Performance metric}}{\text{Cost}}
+\text{Perf/\\$} = \frac{\text{Performance metric}}{\text{Cost}}
 $$
 
 ### 17.4 Total Cost of Ownership
