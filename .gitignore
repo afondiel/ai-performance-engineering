@@ -1,0 +1,8 @@
+# Local Claude Code guidance -- not part of the published reference
+CLAUDE.md
+
+# Render/screenshot artifacts
+build/
+
+# Banner generation notes: the image ships, the prompt notes do not
+assets/ai_perf_banner_generation.md
