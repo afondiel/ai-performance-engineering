@@ -1186,8 +1186,11 @@ top                     # overview
 - [Efficiently Scaling Transformer Inference - Pope et al. (Google)](https://arxiv.org/abs/2211.05102)
 - [LLM Inference Performance Engineering: Best Practices - NVIDIA Technical Blog](https://developer.nvidia.com/blog/mastering-llm-techniques-inference-optimization/)
 
-### Books
-- [High Performance Computing - cs-books collection](https://github.com/afondiel/cs-books?tab=readme-ov-file#%EF%B8%8F-computer-architecture)
+### Books: [Free PDF Editions (Google Drive) - `DISCLAIMER: for learning & Research Purpose only`](https://drive.google.com/drive/folders/1qgt55ZGWXM0sRmQC4jg7DrKlDLfCjUu4?usp=drive_link)
+- [AI Systems Performance Engineering: Optimizing Model Training and Inference Workloads with GPUs, CUDA, and PyTorch - Chris Fregly](https://www.amazon.com/dp/B0F47689K8)
+- [AI Engineering: Building Applications with Foundation Models - Chip Huyen](https://www.amazon.com/dp/1098166302)
+- [Designing Machine Learning Systems: An Iterative Process for Production-Ready Applications - Chip Huyen](https://www.amazon.com/dp/1098107969)
+- [Machine Learning Systems: Principles and Practices of Engineering Artificially Intelligent Systems - Vijay Janapa Reddi](https://mlsysbook.ai/)
 - [Computer Architecture: A Quantitative Approach - Hennessy & Patterson](https://dl.acm.org/doi/book/10.5555/1999263)
 - [Programming Massively Parallel Processors - Kirk & Hwu](https://www.elsevier.com/books/programming-massively-parallel-processors/hwu/978-0-323-91231-0)
 
