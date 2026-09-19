@@ -2,6 +2,8 @@
 
 [![](https://img.shields.io/badge/Contribute-Welcome-green)](./CONTRIBUTING.md) ![GitHub](https://img.shields.io/github/license/afondiel/ai-performance-engineering)
 
+**English** | [Francais](./README.fr.md)
+
 ![ai_perf](./assets/ai_perf_banner.jpeg)
 
 # AI Performance Engineering Cheatsheet
